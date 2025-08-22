@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sattelite</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Sattelite</h1>
+    </header>
+    <main>
+        <div class="left_main_content">
+            <img id="restaurant_img" src="./assets/img/pizza-3000274_1920.jpg" alt="Bild vom Restaurant">
+            <div class="main_content">
+                <div id="restaurant_logo">
+                    <img src="./assets/img/logo_restaurant.png" alt="Logo vom Restaurant">
+                </div>
+                <h2>Abelina</h2>
+                <p id="reviews_user">Bewertungen (4,8 von 5 Sternen)</p>
+                <div id="categories">
+                    <a href="#starter_div"><span>Vorspeise</span></a>
+                    <a href="#maindish_div"><span>Hauptgerichte</span></a>
+                    <a href="#dessert_div"><span>Desserts</span></a>
+                </div>
+                <div id="menu_content">
+                    <div id="starter_div">
+                        <img id="starter_img" class="menu_header_img" src="./assets/img/bruscetta-666120_1920.jpg"
+                            alt="Bild von Vorspeisen">
+                        <h3>Vorspeise</h3>
+                        <div id="starter_1" class="dish">
+                            <div class="dish_details">
+                                <h3>Bruschetta</h3>
+                                <p id="dish_ingredients_1" class="dish_ingredients">mit Tomaten, Zwiebeln und Knoblauch
+                                </p>
+                                <p id="dish_price_1" class="dish_price">8,99€</p>
+                            </div>
+                            <div class="add_dish">+</div>
+                        </div>
+                    </div>
+                    <div id="maindish_div">
+                        <img id="maindish_img" class="menu_header_img" src="./assets/img/pizza-3000274_1920.jpg"
+                            alt="Bild von Hauptspeisen">
+                        <h3>Hauptspeisen</h3>
+                        <div id="dish_1" class="dish">
+                            <div class="dish_details">
+                                <h3>Pizza Margherita</h3>
+                                <p id="dish_ingredients_1" class="dish_ingredients">mit Mozarella</p>
+                                <p id="dish_price_1" class="dish_price">8,99€</p>
+                            </div>
+                            <div class="add_dish">+</div>
+                        </div>
+                        <div id="dish_2" class="dish">
+                            <div class="dish_details">
+                                <h3>Pizza Salami</h3>
+                                <p id="dish_ingredients_2" class="dish_ingredients">mit Salami und Mozarella</p>
+                                <p id="dish_price_2" class="dish_price">8,99€</p>
+                            </div>
+                            <div class="add_dish">+</div>
+                        </div>
+                    </div>
+                    <div id="dessert_div">
+                        <img id="dessert_img" class="menu_header_img" src="./assets/img/cream-2341140_1920.jpg"
+                            alt="Bild von Hauptspeisen">
+                        <h3>Desserts</h3>
+                        <div id="dish_1" class="dish">
+                            <div class="dish_details">
+                                <h3>Tiramisu</h3>
+                                <p id="dish_ingredients_1" class="dish_ingredients">enthält Alkohol</p>
+                                <p id="dish_price_1" class="dish_price">8,99€</p>
+                            </div>
+                            <div class="add_dish">+</div>
+                        </div>
+                        <div id="dish_2" class="dish">
+                            <div class="dish_details">
+                                <h3>Cheesecake</h3>
+                                <p id="dish_ingredients_2" class="dish_ingredients">mit vollmundiger Käsecréme aus
+                                    Frischkäse und Mascarpone</p>
+                                <p id="dish_price_2" class="dish_price">8,99€</p>
+                            </div>
+                            <div class="add_dish">+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="cart">
+            <h2>Warenkorb</h2>
+            <div id="cart_dishes">
+                <div id="cart_dish_1" class="cart_dish">
+                    <h3>Bruschetta</h3>
+                    <div id="cart_details">
+                        <div id="cart_dish_amount">
+                            <button>-</button>13 <button>+</button>
+                        </div>
+                        <span id="price_sum">18,50€</span>
+                        <button id="cart_dish_delete_1" class="cart_dish_delete">X</button>
+                    </div>
+                </div>
+                <div id="cart_dish_2" class="cart_dish">
+                    <h3>Pizza Romano</h3>
+                    <div id="cart_details">
+                        <div id="cart_dish_amount">
+                            <button>-</button>22<button>+</button>
+                        </div>
+                        <span id="price_sum">18,50€</span>
+                        <button id="cart_dish_delete_2" class="cart_dish_delete">X</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+
+</html>
