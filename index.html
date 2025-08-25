@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sattelite</title>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./assets/icons/icon_satt_elite.png" type="image/x-icon">
 </head>
-
-<body>
+<body onload="init()">
     <header>
         <h1>Sattelite</h1>
     </header>
@@ -29,60 +28,22 @@
                 </div>
                 <div id="menu_content">
                     <div id="starter_div">
-                        <img id="starter_img" class="menu_header_img" src="./assets/img/bruscetta-666120_1920.jpg"
-                            alt="Bild von Vorspeisen">
+                        <img id="starter_img" class="menu_header_img" src="./assets/img/header_vorspeise.jpg" alt="Bild von Vorspeisen">
                         <h3>Vorspeise</h3>
-                        <div id="starter_1" class="dish">
-                            <div class="dish_details">
-                                <h3>Bruschetta</h3>
-                                <p id="dish_ingredients_1" class="dish_ingredients">mit Tomaten, Zwiebeln und Knoblauch
-                                </p>
-                                <p id="dish_price_1" class="dish_price">8,99€</p>
-                            </div>
-                            <div class="add_dish">+</div>
+                        <div id="starter_content" class="starter_content">
                         </div>
                     </div>
                     <div id="maindish_div">
-                        <img id="maindish_img" class="menu_header_img" src="./assets/img/pizza-3000274_1920.jpg"
-                            alt="Bild von Hauptspeisen">
+                        <img id="maindish_img" class="menu_header_img" src="./assets/img/pizza-3000274_1920.jpg" alt="Bild von Hauptspeisen">
                         <h3>Hauptspeisen</h3>
-                        <div id="dish_1" class="dish">
-                            <div class="dish_details">
-                                <h3>Pizza Margherita</h3>
-                                <p id="dish_ingredients_1" class="dish_ingredients">mit Mozarella</p>
-                                <p id="dish_price_1" class="dish_price">8,99€</p>
-                            </div>
-                            <div class="add_dish">+</div>
-                        </div>
-                        <div id="dish_2" class="dish">
-                            <div class="dish_details">
-                                <h3>Pizza Salami</h3>
-                                <p id="dish_ingredients_2" class="dish_ingredients">mit Salami und Mozarella</p>
-                                <p id="dish_price_2" class="dish_price">8,99€</p>
-                            </div>
-                            <div class="add_dish">+</div>
+                        <div id="main_dish_content" class="main_dish_content">
                         </div>
                     </div>
                     <div id="dessert_div">
-                        <img id="dessert_img" class="menu_header_img" src="./assets/img/cream-2341140_1920.jpg"
-                            alt="Bild von Hauptspeisen">
+                        <img id="dessert_img" class="menu_header_img" src="./assets/img/cream-2341140_1920.jpg" alt="Bild von Hauptspeisen">
                         <h3>Desserts</h3>
-                        <div id="dish_1" class="dish">
-                            <div class="dish_details">
-                                <h3>Tiramisu</h3>
-                                <p id="dish_ingredients_1" class="dish_ingredients">enthält Alkohol</p>
-                                <p id="dish_price_1" class="dish_price">8,99€</p>
-                            </div>
-                            <div class="add_dish">+</div>
+                        <div id="dessert_content" class="dessert_content">
                         </div>
-                        <div id="dish_2" class="dish">
-                            <div class="dish_details">
-                                <h3>Cheesecake</h3>
-                                <p id="dish_ingredients_2" class="dish_ingredients">mit vollmundiger Käsecréme aus
-                                    Frischkäse und Mascarpone</p>
-                                <p id="dish_price_2" class="dish_price">8,99€</p>
-                            </div>
-                            <div class="add_dish">+</div>
                         </div>
                     </div>
                 </div>
@@ -90,27 +51,16 @@
         </div>
         <div id="cart">
             <h2>Warenkorb</h2>
+            <hr>
+                <div>
+                    <button id="delivery_service" class="button_delivery_switch active_now" onclick="switchDeliveryMode(`delivery_service`, `self_collect`)">Lieferung</button><button id="self_collect" class="button_delivery_switch" onclick="switchDeliveryMode(`self_collect`, `delivery_service`)">Selbstabholer</button>
+                </div>
             <div id="cart_dishes">
-                <div id="cart_dish_1" class="cart_dish">
-                    <h3>Bruschetta</h3>
-                    <div id="cart_details">
-                        <div id="cart_dish_amount">
-                            <button>-</button>13 <button>+</button>
-                        </div>
-                        <span id="price_sum">18,50€</span>
-                        <button id="cart_dish_delete_1" class="cart_dish_delete">X</button>
-                    </div>
+                <div id="empty_cart">
+                    <img src="./assets/icons/icon_shopping_cart.png" alt="Icon von einem Einkauswagen">
                 </div>
-                <div id="cart_dish_2" class="cart_dish">
-                    <h3>Pizza Romano</h3>
-                    <div id="cart_details">
-                        <div id="cart_dish_amount">
-                            <button>-</button>22<button>+</button>
-                        </div>
-                        <span id="price_sum">18,50€</span>
-                        <button id="cart_dish_delete_2" class="cart_dish_delete">X</button>
-                    </div>
-                </div>
+            </div>
+
             </div>
         </div>
     </main>
@@ -118,5 +68,5 @@
 
     </footer>
 </body>
-
 </html>
+

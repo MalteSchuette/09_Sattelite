@@ -1,10 +1,16 @@
+html {
+    scroll-behavior:smooth ;
+    scrollbar-color: orange white;
+}
+
 body {
     margin: 0;
+    font-size: 20px;
 }
 
 header {
     height: 80px;
-    background-color: orangered;
+    background-color: orange;
     display: flex;
     align-items: center;
 }
@@ -32,7 +38,7 @@ main {
     position: absolute;
     top: 200px;
     left: 0;
-    right: 0;
+    right: 320px;
     width: 180px;
     height: 180px;
     border: 1px solid grey;
@@ -42,7 +48,7 @@ main {
     margin-right: auto;
     filter: drop-shadow(0 0 0.75rem gray);
     object-fit: contain;
-    object-position: center;
+    object-position:10%;
 }
 
 #restaurant_logo img {
@@ -51,7 +57,7 @@ main {
 }
 
 #reviews_user {
-    color: orangered;
+    color: orange;
     margin-left: 16px;
 }
 
@@ -73,7 +79,7 @@ main {
 }
 
 #categories a:hover {
-    color: orangered;
+    color: orange;
     scale: 1.1;
 }
 
@@ -110,35 +116,36 @@ h3 {
 .dish_price {
     margin-left: 16px;
     font-weight: 700;
-    color: orangered;
+    color: orange;
 }
 
 .add_dish {
-    border: 2px solid gray;
-    width: 30px;
-    height: 30px;
+    border-left: 2px solid lightgray;
+    border-bottom: 2px solid lightgray;
+    width: 35px;
+    height: 35px;
     display:flex;
     justify-content: center;
     align-items: center;
-    color: orangered;
-    font-weight: 900;
 }
 
 #cart {
     height: 100vh;
-    width: 250px;
+    width: 320px;
+    padding: 16px;
     position:sticky;
     top:0px;
     background-color: white;
     border: 2px solid lightgray;
-
-
 }
 
 #cart h2 {
     text-align: center;
-    border-bottom: 2px solid lightgray;
     padding-bottom: 16px;
+}
+
+#cart h3 {
+    margin-left: 0;
 }
 
 .left_main_content {
@@ -156,9 +163,115 @@ h3 {
 }
 
 #cart_dish_amount {
-    margin-left: 16px;
+    display: flex;
+}
+
+#cart hr {
+    color: lightgray;
+    margin-bottom: 8px;
+}
+
+
+#cart_dish_amount img {
+    max-height: 20px;;
+}
+
+#cart_dish_amount img:hover {
+    scale: 1.2;    
+}
+
+#cart_dish_amount button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+#cart_dish_amount span {
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+#empty_cart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 56px;
+    margin-bottom: 56px;
+    flex: 1;
+}
+
+.cart_dish h3{
+    margin-top: 24px;
+    margin-bottom: 8px;
+}
+
+#cart h2 {
+    margin-bottom: 0;
 }
 
 .cart_dish_delete {
-    margin-right: 16px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.cart_dish_delete:hover {
+    scale: 1.1;
+}
+
+.cart_dish_delete img {
+    max-height: 20px;
+}
+
+#sum_food {
+    display: flex;
+    justify-content: space-between;
+}
+
+#sum_food p{
+    margin-bottom: 0;
+    color: grey;
+}
+
+
+#delivery_fee {
+    display: flex;
+    justify-content: space-between;
+}
+
+#delivery_fee p {
+    margin-top: 8px;
+    margin-bottom: 0;
+    color: grey;
+}
+
+#total_cost {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+}
+
+.button_delivery_switch {
+    width: 160px;
+    padding: 8px;
+    cursor: pointer;
+    font-size: 20px;
+    background-color: darkgray;
+}
+
+.active_now {
+    background-color: orange;
+}
+
+#delivery_service {
+    border-radius: 5px 0 0 5px;
+    border-right: none;
+}
+
+#self_collect {
+    border-radius: 0 5px 5px 0;
+    border-left: none;
 }
