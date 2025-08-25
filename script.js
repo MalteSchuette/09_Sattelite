@@ -153,6 +153,7 @@ function getTotalCostsHTML(dish_total_costs) {
                         <p>Gesamt</p>
                         <p>${(dish_total_costs + delivery_costs).toFixed(2)} €</p>
                     </div>
+                    <button id="cart_checkout" onclick="cartCheckout()">Jetzt bestellen!</button>
                 </div>
             `
 }
@@ -184,4 +185,21 @@ function switchDeliveryMode(mode1, mode2) {
         delivery_costs = 5;
     }
     renderCart()
+}
+
+function cartCheckout() {
+    if (cart != "") {
+    cart = []
+    amount = []
+    document.getElementById("cart_dishes").innerHTML = getCheckoutHTML()
+    }
+}
+
+function getCheckoutHTML() {
+    return  `
+            <div id="checkout_message">
+                <p>Deine Bestellung wurde gesendet. <br> Du erhälst in Kürze eine Bestätigung via Email.</p> <button onclick="renderCart()">ok</button>
+
+            </div>
+            `
 }

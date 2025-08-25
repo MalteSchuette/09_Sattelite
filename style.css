@@ -3,6 +3,18 @@ html {
     scrollbar-color: orange white;
 }
 
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: orange;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-track {
+  background: white;
+}
+
 body {
     margin: 0;
     font-size: 20px;
@@ -12,7 +24,46 @@ header {
     height: 80px;
     background-color: orange;
     display: flex;
+    justify-content: center;
+}
+
+.header_content {
+    height: 80px;
+    display: flex;
     align-items: center;
+    justify-content: flex-start;
+    flex: 1;
+}
+
+.max_width_1920 {
+    max-width: 1920px;
+}
+
+.header_content img {
+    max-height: 100px;
+}
+
+#satt_headline {
+    color: white;
+    font-weight: 900;
+    font-size: 64px;
+}
+
+#elite_headline {
+    font-weight: 900;
+    font-size: 64px;
+}
+
+footer {
+    height: 100px;
+    background-color:darkgrey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer img {
+    max-height: 100px;
 }
 
 h1 {
@@ -20,8 +71,9 @@ h1 {
     color: white;
 }
 
-main {
+.main_content_div{
     display: flex;
+    flex:1;
 }
 
 #restaurant_img {
@@ -34,9 +86,14 @@ main {
     margin-left: 16px
 }
 
+main {
+    display: flex;
+    justify-content: center;
+}
+
 #restaurant_logo {
     position: absolute;
-    top: 200px;
+    top: 180px;
     left: 0;
     right: 320px;
     width: 180px;
@@ -137,6 +194,7 @@ h3 {
     top:0px;
     background-color: white;
     border: 2px solid lightgray;
+    overflow-y: scroll;
 }
 
 #cart h2 {
@@ -274,4 +332,61 @@ h3 {
 #self_collect {
     border-radius: 0 5px 5px 0;
     border-left: none;
+}
+
+#cart_checkout {
+    width: 100%;
+    padding: 8px;
+    font-size: 20px;
+    background-color: orange;
+}
+
+#checkout_message {
+    flex: 1;
+}
+
+#checkout_message button {
+    width: 100%;
+    padding: 8px;
+    font-size: 20px;
+    background-color: orange;
+}
+
+.delievery_mode {
+    display: flex;
+}
+
+@media (max-width: 850px) {
+    #categories {
+        display: none;
+    }
+
+    body {
+        font-size: 16px;
+    }
+
+    .button_delivery_switch {
+        font-size: 16px;
+    }
+
+    #cart_checkout {
+        font-size: 16px;
+    }
+
+    #cart {
+        width: 230px;
+    }
+
+    #restaurant_logo {
+        top: 150px;
+        right: 230px;
+    }
+}
+
+@media (max-width: 550px) {
+    #restaurant_logo {
+        top: 80px; 
+    }
+
+
 }
