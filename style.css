@@ -39,6 +39,13 @@ header {
     max-width: 1920px;
 }
 
+.footer_content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex:1;
+}
+
 .header_content img {
     max-height: 100px;
 }
@@ -138,6 +145,10 @@ main {
 #categories a:hover {
     color: orange;
     scale: 1.1;
+}
+
+.d_none {
+    display: none;
 }
 
 #menu_content {
@@ -352,8 +363,31 @@ h3 {
     background-color: orange;
 }
 
-.delievery_mode {
+.delivery_mode {
     display: flex;
+}
+
+#low_width_cart {
+    display: none;
+    width: 100%;
+    height: 50px;
+    padding: 8px;
+    font-size: 20px;
+    background-color: orange;
+    position:fixed;
+    bottom:0;   
+}
+
+#low_width_cart_fullscreen {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+    text-align: center;
+    padding: 16px;
+    box-sizing: border-box;
+    
 }
 
 @media (max-width: 850px) {
@@ -384,9 +418,33 @@ h3 {
 }
 
 @media (max-width: 550px) {
+    #cart {
+        display: none;
+    }
+    
     #restaurant_logo {
-        top: 80px; 
+        left: 0;
+        right: 0;  
     }
 
+    main {
+        flex-direction: column;
+    }
 
+    #low_width_cart {
+        display: block;
+    }
+
+    footer {
+        height: 30px;
+        margin-top: 5px;
+    }
+
+    footer img {
+        display: none;
+    }
+    
+    footer span {
+        display: none;
+    }
 }

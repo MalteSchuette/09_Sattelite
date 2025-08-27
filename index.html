@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sattelite</title>
+    <script src="template.js" defer></script>
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="./assets/icons/icon_satt_elite.png" type="image/x-icon">
@@ -57,15 +58,12 @@
                     </div>
                 </div>
             </div>
-
             <div id="cart">
                 <h2>Warenkorb</h2>
                 <hr>
-                <div class="delievery_mode">
-                    <button id="delivery_service" class="button_delivery_switch active_now"
-                        onclick="switchDeliveryMode(`delivery_service`, `self_collect`)">Lieferung</button><button
-                        id="self_collect" class="button_delivery_switch"
-                        onclick="switchDeliveryMode(`self_collect`, `delivery_service`)">Selbstabholer</button>
+                <div class="delivery_mode">
+                    <button id="delivery_service" class="button_delivery_switch active_now" onclick="switchDeliveryMode(true)">Lieferung</button>
+                    <button id="self_collect" class="button_delivery_switch" onclick="switchDeliveryMode(false)">Selbstabholer</button>
                 </div>
                 <div id="cart_dishes">
                     <div id="empty_cart">
@@ -74,10 +72,24 @@
                 </div>
             </div>
         </div>
+        <div id="low_width_cart_fullscreen" class="d_none">
+            <h2>Warenkorb</h2>
+            <hr>
+            <div class="delivery_mode_low_width">
+                <button id="delivery_service_low" class="button_delivery_switch active_now"
+                    onclick="switchDeliveryMode(true)">Lieferung</button>
+                <button id="self_collect_low" class="button_delivery_switch"
+                    onclick="switchDeliveryMode(false)">Selbstabholer</button>
+            </div>
+            <div id="low_width_cart_content"></div>
+        </div>
+        <div id="low_width_cart_div"></div>
     </main>
     <footer>
-        <img src="./assets/icons/icon_satt_elite.png" alt="Logo von Sattelite">
-        <span id="satt_headline">Satt</span> <span id="elite_headline">elite</span>
+        <div class="footer_content max_width_1920">
+            <img src="./assets/icons/icon_satt_elite.png" alt="Logo von Sattelite">
+            <span id="satt_headline">Satt</span> <span id="elite_headline">elite</span>
+        </div>
     </footer>
 </body>
 

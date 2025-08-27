@@ -1,57 +1,6 @@
-
-let dishs = [
-    {
-        "name": "Pizza Margherita",
-        "ingredients": "mit Mozarella",
-        "price": 8.50,
-        "category": "main"
-    },
-    {
-        "name": "Pizza Salami",
-        "ingredients": "mit Salami und Mozarella",
-        "price": 10.50,
-        "category": "main"      
-    },
-    {
-        "name": "Pizza Funghi",
-        "ingredients": "mit Pilzen und Mozarella",
-        "price": 9.50,
-        "category": "main" 
-    },
-    {
-        "name": "Pizza Parma",
-        "ingredients": "mit Parmaschinken, Rucola und Mozarella",
-        "price": 13.00,
-        "category": "main" 
-    },
-    {
-        "name": "Bruschetta",
-        "ingredients": "mit Tomaten, Zwiebeln und Knoblauch",
-        "price": 4.50,
-        "category": "starter" 
-    },
-    {
-        "name": "Antipasti Teller",
-        "ingredients": "Artischocken, Pepperoni, Zucchini, Paprika und Tomaten",
-        "price": 14.50,
-        "category": "starter" 
-    },
-    {
-        "name": "Tiramisu",
-        "ingredients": "mit abwechselnden Schichten von Löffelbiskuits und einer Creme aus Mascarpone",
-        "price": 5.50,
-        "category": "dessert" 
-    },
-    {
-        "name": "Cheesecake",
-        "ingredients": "mit vollmundiger Käsecréme aus Frischkäse und Mascarpone",
-        "price": 5.50,
-        "category": "dessert" 
-    },
-]
-
 let cart = []
 let amount = []
+let delivery = true;
 let delivery_costs = 5.00
 
 
@@ -74,20 +23,7 @@ function renderDishs() {
             dessertRef.innerHTML += getHTML(index);
         }
     }
-}
-
-
-function getHTML(index) {
-    return `
-           <div id="${dishs[index].category}_${index}" class="dish">
-                <div class="dish_details">
-                    <h3>${dishs[index].name}</h3>
-                    <p id="dish_ingredients_${index}" class="dish_ingredients"> ${dishs[index].ingredients} </p>
-                    <p id="dish_price_${index}" class="dish_price">${dishs[index].price.toFixed(2)}€</p>
-                </div>
-                <div class="add_dish" onclick="addToCart(${index})"><img src="./assets/icons/icon_add.png" alt="Bild eines Pluszeichens"></div>
-            </div> 
-            `
+    document.getElementById("low_width_cart_div").innerHTML += getCartButtonHTML();
 }
 
 function addToCart(index) {
@@ -103,59 +39,22 @@ function addToCart(index) {
 
 function renderCart() {
         document.getElementById("cart_dishes").innerHTML = "";
+        document.getElementById("low_width_cart_content").innerHTML = "";
         let dish_total_costs = 0;
     for (i=0; i< cart.length;i++) {
         let priceDish = cart[i].price * amount[i]
         dish_total_costs += priceDish
         document.getElementById("cart_dishes").innerHTML += getCartHTML(i, priceDish,)
+        document.getElementById("low_width_cart_content").innerHTML += getCartHTML(i, priceDish,)
         }
     document.getElementById("cart_dishes").innerHTML += getTotalCostsHTML(dish_total_costs)
+    document.getElementById("low_width_cart_content").innerHTML += getTotalCostsHTML(dish_total_costs)
 }
-
 
 function getMenuIndex(index) {
     let menu = dishs[index]
     let menuIndex = cart.indexOf(menu)
     return menuIndex
-}
-
-function getCartHTML(i, priceDish,) {
-    return  `
-                <div id="cart_dish_${i}" class="cart_dish">
-                    <h3>${cart[i].name}</h3>
-                    <div id="cart_details">
-                        <div id="cart_dish_amount">
-                            <button><img src="./assets/icons/icon_remove.png" alt="Icon von einem Minus" onclick="reduceAmount(${i})"></button>
-                            <span>${amount[i]}</span> 
-                            <button><img src="./assets/icons/icon_add.png" alt="Icon von einem Plus" onclick="increaseAmount(${i})"></button>
-                        </div>
-                        <span id="price_sum">${priceDish.toFixed(2)} €</span>
-                        <button id="cart_dish_delete_1" class="cart_dish_delete" onclick="removeItemFromCart(${i})"><img src="./assets/icons/icon_trash.png" alt="Icon eines Mülleimers"></button>
-                    </div>
-                </div>
-
-            `
-}
-
-function getTotalCostsHTML(dish_total_costs) {
-    return  `
-                <div id="total_costs">
-                    <hr>
-                    <div id="sum_food">
-                        <p>Zwischensumme</p>
-                        <p>${dish_total_costs.toFixed(2)} €</p>
-                    </div>
-                    <div id="delivery_fee">
-                        <p>Lieferkosten</p>
-                        <p>${delivery_costs.toFixed(2)} €</p>
-                    </div>
-                    <div id="total_cost">
-                        <p>Gesamt</p>
-                        <p>${(dish_total_costs + delivery_costs).toFixed(2)} €</p>
-                    </div>
-                    <button id="cart_checkout" onclick="cartCheckout()">Jetzt bestellen!</button>
-                </div>
-            `
 }
 
 function reduceAmount(i) {
@@ -174,17 +73,32 @@ function removeItemFromCart(i) {
     renderCart()
 }
 
-function switchDeliveryMode(mode1, mode2) {
-    document.getElementById(mode1).classList.add("active_now")
-    document.getElementById(mode2).classList.remove("active_now")
+function switchDeliveryMode(mode) {
+    delivery = mode;
 
-    if (document.getElementById("self_collect").classList.contains("active_now")) {
-        delivery_costs = 0;
-    }
-    else {
+    if (delivery == true) {
+        activateDeliveryButton()
         delivery_costs = 5;
     }
-    renderCart()
+    else if (delivery == false) {
+        activateCollectButton()
+        delivery_costs = 0;
+    }
+    renderCart();
+}
+
+function activateDeliveryButton() {
+        document.getElementById("delivery_service").classList.add("active_now")
+        document.getElementById("delivery_service_low").classList.add("active_now")
+        document.getElementById("self_collect").classList.remove("active_now")
+        document.getElementById("self_collect_low").classList.remove("active_now")
+}
+
+function activateCollectButton() {
+        document.getElementById("delivery_service").classList.remove("active_now")
+        document.getElementById("delivery_service_low").classList.remove("active_now")
+        document.getElementById("self_collect").classList.add("active_now")
+        document.getElementById("self_collect_low").classList.add("active_now")
 }
 
 function cartCheckout() {
@@ -192,14 +106,17 @@ function cartCheckout() {
     cart = []
     amount = []
     document.getElementById("cart_dishes").innerHTML = getCheckoutHTML()
+    document.getElementById("low_width_cart_content").innerHTML = getCheckoutHTML()
     }
 }
 
-function getCheckoutHTML() {
-    return  `
-            <div id="checkout_message">
-                <p>Deine Bestellung wurde gesendet. <br> Du erhälst in Kürze eine Bestätigung via Email.</p> <button onclick="renderCart()">ok</button>
+function toggleCart() {
+    document.getElementById("low_width_cart_fullscreen").classList.toggle("d_none")
+    renderCart();
+}
 
-            </div>
-            `
+function closeCart() {
+    if (document.getElementById("low_width_cart_fullscreen").classList.contains("d_none") == false) {
+        toggleCart()
+    }
 }
