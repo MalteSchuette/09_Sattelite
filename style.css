@@ -297,8 +297,8 @@ h3 {
     margin-right: 5px;
 }
 
-.cart_dish_delete:hover {
-    scale: 1.1;
+.cart_dish_delete img:hover {
+    transform: scale(1.1);
 }
 
 .cart_dish_delete img {

@@ -105,6 +105,27 @@ function getTotalCostsHTML(dish_total_costs) {
             `
 }
 
+function getTotalCostsHTML(dish_total_costs) {
+    return  `
+                <div id="total_costs_low">
+                    <hr>
+                    <div id="sum_food">
+                        <p>Zwischensumme</p>
+                        <p>${dish_total_costs.toFixed(2)} €</p>
+                    </div>
+                    <div id="delivery_fee">
+                        <p>Lieferkosten</p>
+                        <p>${delivery_costs.toFixed(2)} €</p>
+                    </div>
+                    <div id="total_cost">
+                        <p>Gesamt</p>
+                        <p>${(dish_total_costs + delivery_costs).toFixed(2)} €</p>
+                    </div>
+                    <button id="cart_checkout" onclick="cartCheckout()">Jetzt bestellen!</button>
+                </div>
+            `
+}
+
 function getCheckoutHTML() {
     return  `
             <div id="checkout_message">

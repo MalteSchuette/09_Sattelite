@@ -114,6 +114,8 @@ function cartCheckout() {
     amount = []
     document.getElementById("cart_dishes").innerHTML = getCheckoutHTML()
     document.getElementById("low_width_cart_content").innerHTML = getCheckoutHTML()
+    document.getElementById("total_costs").innerHTML = ""
+    document.getElementById("total_costs_low").innerHTML = ""
     }
 }
 
