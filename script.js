@@ -40,6 +40,8 @@ function addToCart(index) {
 function renderCart() {
         document.getElementById("cart_dishes").innerHTML = "";
         document.getElementById("low_width_cart_content").innerHTML = "";
+        document.getElementById("total_costs").innerHTML = "";
+        document.getElementById("low_width_total_costs").innerHTML = ""
         let dish_total_costs = 0;
     for (i=0; i< cart.length;i++) {
         let priceDish = cart[i].price * amount[i]
@@ -47,8 +49,8 @@ function renderCart() {
         document.getElementById("cart_dishes").innerHTML += getCartHTML(i, priceDish,)
         document.getElementById("low_width_cart_content").innerHTML += getCartHTML(i, priceDish,)
         }
-    document.getElementById("cart_dishes").innerHTML += getTotalCostsHTML(dish_total_costs)
-    document.getElementById("low_width_cart_content").innerHTML += getTotalCostsHTML(dish_total_costs)
+    document.getElementById("total_costs").innerHTML += getTotalCostsHTML(dish_total_costs)
+    document.getElementById("low_width_total_costs").innerHTML += getTotalCostsHTML(dish_total_costs)
 }
 
 function getMenuIndex(index) {
@@ -59,7 +61,12 @@ function getMenuIndex(index) {
 
 function reduceAmount(i) {
     amount[i] --;
+    if (amount[i] <= 0) {
+        removeItemFromCart(i)
+    }
+    else {
     renderCart()
+    }
 }
 
 function increaseAmount(i) {

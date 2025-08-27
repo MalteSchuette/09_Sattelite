@@ -20,6 +20,10 @@ body {
     font-size: 20px;
 }
 
+#menu_content h3 {
+    font-size: 28px;
+}
+
 header {
     height: 80px;
     background-color: orange;
@@ -90,7 +94,8 @@ h1 {
 }
 
 .main_content h2 {
-    margin-left: 16px
+    margin-left: 16px;
+    font-size: 32px;
 }
 
 main {
@@ -171,6 +176,7 @@ h3 {
     display: flex;
     justify-content: space-between;
     margin-bottom: 16px;
+    
 }
 
 .dish:hover {
@@ -195,6 +201,7 @@ h3 {
     display:flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 #cart {
@@ -205,7 +212,6 @@ h3 {
     top:0px;
     background-color: white;
     border: 2px solid lightgray;
-    overflow-y: scroll;
 }
 
 #cart h2 {
@@ -223,7 +229,10 @@ h3 {
 
 #cart_dishes {
     display: flex;
+    max-height: 80%;
     flex-direction: column;
+    max-height: 500px;
+    overflow-y: auto;
 }
 
 #cart_details {
@@ -285,6 +294,7 @@ h3 {
     background: none;
     border: none;
     cursor: pointer;
+    margin-right: 5px;
 }
 
 .cart_dish_delete:hover {
@@ -350,6 +360,7 @@ h3 {
     padding: 8px;
     font-size: 20px;
     background-color: orange;
+    cursor: pointer;
 }
 
 #checkout_message {
@@ -361,6 +372,7 @@ h3 {
     padding: 8px;
     font-size: 20px;
     background-color: orange;
+    cursor: pointer;
 }
 
 .delivery_mode {
@@ -386,8 +398,13 @@ h3 {
     background-color: white;
     text-align: center;
     padding: 16px;
-    box-sizing: border-box;
-    
+    box-sizing: border-box; 
+}
+
+#low_width_cart_content {
+    scale: 0.95;
+    overflow-y: auto;
+    max-height: 60%;
 }
 
 @media (max-width: 850px) {
@@ -417,7 +434,7 @@ h3 {
     }
 }
 
-@media (max-width: 550px) {
+@media (max-width: 600px) {
     #cart {
         display: none;
     }
