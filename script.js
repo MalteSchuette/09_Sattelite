@@ -120,7 +120,15 @@ function cartCheckout() {
 }
 
 function toggleCart() {
-    document.getElementById("low_width_cart_fullscreen").classList.toggle("d_none")
+    const cartLow = document.getElementById("low_width_cart_fullscreen");
+    cartLow.classList.toggle("d_none");
+
+    if (cartLow.classList.contains("d_none")) {
+        document.body.classList.remove("no_scroll");
+    }
+    else {
+        document.body.classList.add("no_scroll");
+    }
     renderCart();
 }
 

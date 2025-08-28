@@ -407,6 +407,10 @@ h3 {
     max-height: 60%;
 }
 
+.no_scroll {
+    overflow: hidden;
+}
+
 @media (max-width: 850px) {
     #categories {
         display: none;
